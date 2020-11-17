@@ -62,12 +62,13 @@ public class JavaHomeWork_3 {
 
     private static void doScanner() {
         System.out.println("程序执行开始");
+        int i = 0;
         String next = "";
-        while (!"#".equals(next)) {
-            next = new Scanner(System.in).next();
+        while (!"#".equals(next = new Scanner(System.in).next())) {
             System.out.println("当前输入的字符为：" + next);
+            i++;
         }
-        System.out.println("程序执行结束");
+        System.out.println("已输入 # 程序执行结束 字符总个数为：" + i);
     }
 }
 
