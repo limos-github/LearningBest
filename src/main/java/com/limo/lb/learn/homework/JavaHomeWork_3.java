@@ -1,7 +1,5 @@
 package com.limo.lb.learn.homework;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
@@ -12,7 +10,7 @@ public class JavaHomeWork_3 {
         /**
          * 1. 统计从键盘输入字符的个数，当输入字符“#”时中止输入。
          * */
-//        doScanner();
+        doScanner();
         /**
          * 2. 声明一个类 People，成员变量有姓名、出生日期、性别、身高、体重等；生成 10 个 People
          * （可使用 for 循环），并放在一维数组中，编写方法按身高进行排序。
