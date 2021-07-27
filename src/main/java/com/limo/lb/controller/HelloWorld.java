@@ -10,4 +10,7 @@ public class HelloWorld {
     public String hello(){
         return "hello world!";
     }
+    void point(){
+        System.out.println("hello");
+    }
 }
