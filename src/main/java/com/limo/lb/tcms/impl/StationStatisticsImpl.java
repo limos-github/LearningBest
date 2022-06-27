@@ -1,15 +1,14 @@
 package com.limo.lb.tcms.impl;
 
 import com.limo.lb.tcms.StationStatisticsQueryService;
-import com.limo.lb.tcms.TcmsClientService;
 import com.limo.lb.tcms.TcmsPushService;
 import com.limo.lb.tcms.config.ConstantPushConfig;
-import com.limo.lb.tcms.dto.ResponseJson;
 import com.limo.lb.tcms.dto.StationInfo;
 import com.limo.lb.tcms.dto.StationStatisticsData;
 import com.limo.lb.tcms.dto.StationStatisticsDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -25,10 +24,11 @@ import java.util.Map;
 @Slf4j
 @Service
 public class StationStatisticsImpl implements TcmsPushService<StationStatisticsDto, List<StationStatisticsData>, StationStatisticsData> {
-    @Autowired
-    private TcmsClientService tcmsClientService;
+//    @Autowired
+//    private TcmsClientService tcmsClientService;
     @Autowired
     private ConstantPushConfig constantPushConfig;
+    @Lazy
     @Autowired
     private StationStatisticsQueryService stationStatisticsQueryService;
 
@@ -66,8 +66,8 @@ public class StationStatisticsImpl implements TcmsPushService<StationStatisticsD
         for (StationStatisticsData data : list) {
             Map map = toMap(data);
             log.info("发送日志结束--->终端控制塔:{}", data);
-            ResponseJson responseJson = tcmsClientService.dataStatistics(map);
-            log.info("发送日志结束--->终端控制塔:{}", responseJson);
+//            ResponseJson responseJson = tcmsClientService.dataStatistics(map);
+//            log.info("发送日志结束--->终端控制塔:{}", responseJson);
         }
     }
 

@@ -29,7 +29,7 @@ public abstract class TcmsTemplate {
             if (constantPushConfig.getDataEnable()) {
                 /**处理日志数据*/
                 tcmsService.operation(t, data);
-                /**推送数据*/
+                /***/
                 tcmsService.push(data);
             }
         } catch (Exception e) {

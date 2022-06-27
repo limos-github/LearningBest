@@ -1,11 +1,9 @@
 package com.limo.lb.tcms.impl;
 
-import com.limo.lb.tcms.TcmsClientService;
 import com.limo.lb.tcms.TcmsPushService;
 import com.limo.lb.tcms.config.ConstantPushConfig;
 import com.limo.lb.tcms.dto.ReceiveOperateData;
 import com.limo.lb.tcms.dto.ReceiveOperateDto;
-import com.limo.lb.tcms.dto.ResponseJson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +24,8 @@ import java.util.Map;
 @Service
 public class ReceiveOperateImpl implements TcmsPushService<ReceiveOperateDto, List<ReceiveOperateData>, ReceiveOperateData> {
 
-    @Autowired
-    private TcmsClientService tcmsClientService;
+//    @Autowired
+//    private TcmsClientService tcmsClientService;
     @Autowired
     private ConstantPushConfig constantPushConfig;
 
@@ -72,8 +70,8 @@ public class ReceiveOperateImpl implements TcmsPushService<ReceiveOperateDto, Li
         for (ReceiveOperateData data : list) {
             Map map = toMap(data);
             log.info("发送日志结束--->终端控制塔:{}", data);
-            ResponseJson responseJson = tcmsClientService.push(map);
-            log.info("发送日志结束--->终端控制塔:{}", responseJson);
+//            ResponseJson responseJson = tcmsClientService.push(map);
+//            log.info("发送日志结束--->终端控制塔:{}", responseJson);
         }
     }
 
