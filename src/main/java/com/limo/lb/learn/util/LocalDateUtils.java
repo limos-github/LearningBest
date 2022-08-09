@@ -1,8 +1,11 @@
 package com.limo.lb.learn.util;
 
+import org.springframework.util.StringUtils;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 /**
  * The type Local date utils.
@@ -26,6 +29,23 @@ public class LocalDateUtils {
         System.out.println(getNowTime(true));
         System.out.println();
         System.out.println(getDailyDifference(getNowTime(false).minusDays(2), getNowTime(true)));
+        System.out.println(getTimestamp(null, null));
+    }
+
+    /**
+     * <P/> 获取指定时间13位时间戳
+     * <P/> 默认获取东八区当前时间的时间戳
+     * <P/> if (null,null) return 1660013466429
+     * <P/> if (2022-08-09T10:51:06.429,+8) 1660013466429
+     */
+    public static Long getTimestamp(LocalDateTime time, String timeZone) {
+        if (null == time) {
+            time = LocalDateTime.now();
+        }
+        if (StringUtils.isEmpty(timeZone)) {
+            timeZone = "+8";
+        }
+        return time.toInstant(ZoneOffset.of(timeZone)).toEpochMilli();
     }
 
     /**
