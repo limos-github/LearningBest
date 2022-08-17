@@ -71,8 +71,8 @@ public class DataStatisticsImpl implements TcmsPushService<DataStatisticsDto, Li
         for (DataStatisticsData data : list) {
             Map map = toMap(data);
             log.info("发送日志结束--->终端控制塔:{}", data);
-            ResponseJson responseJson = tcmsClientService.dataStatistics(map);
-            log.info("发送日志结束--->终端控制塔:{}", responseJson);
+//            ResponseJson responseJson = tcmsClientService.dataStatistics(map);
+//            log.info("发送日志结束--->终端控制塔:{}", responseJson);
         }
     }
 
