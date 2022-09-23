@@ -10,6 +10,7 @@ import com.limo.lb.tcms.dto.ReceiptParcelInfo;
 import com.limo.lb.tcms.dto.ResponseJson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -27,10 +28,12 @@ import java.util.Map;
 @Slf4j
 @Service
 public class DataStatisticsImpl implements TcmsPushService<DataStatisticsDto, List<DataStatisticsData>, DataStatisticsData> {
+    @Lazy
     @Autowired
     private TcmsClientService tcmsClientService;
     @Autowired
     private ConstantPushConfig constantPushConfig;
+    @Lazy
     @Autowired
     private DataStatisticsQueryService dataStatisticsQueryService;
 
