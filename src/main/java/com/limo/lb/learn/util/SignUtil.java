@@ -97,6 +97,9 @@ public class SignUtil {
      */
     public final static boolean isJSONValid(String json) {
         try {
+            if (!json.contains("\"")) {
+                return false;
+            }
             if (null == JSONObject.parseObject(json)) {
                 return false;
             }
