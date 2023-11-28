@@ -1,7 +1,7 @@
 package com.limo.lb.apply.rules.enums;
 
 /**
- * 云路供应链科技有限公司 版权所有 © Copyright 2021
+ * 
  *
  * @Author: shaokui.chen
  * @Date: 2021/5/24 11:38

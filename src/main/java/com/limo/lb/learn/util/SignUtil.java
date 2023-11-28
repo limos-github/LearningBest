@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
-import lombok.extern.slf4j.Slf4j;
 
 import java.security.MessageDigest;
 import java.util.*;
@@ -14,7 +13,7 @@ import java.util.*;
  * @author: Limo
  * @time: 2023-07-21 14:33
  */
-@Slf4j
+//@Slf4j
 public class SignUtil {
 
     public static void main(String[] args) {
@@ -25,7 +24,7 @@ public class SignUtil {
     }
 
     public static String sign(String key, String ts, String param) {
-        log.info("1.sign 入参 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, param);
+//        log.info("1.sign 入参 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, param);
         String json;
         if (null != param && "" != param) {
             //json排序
@@ -34,16 +33,16 @@ public class SignUtil {
         } else {
             json = "{}";
         }
-        log.info("2.sign 排序 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, json);
+//        log.info("2.sign 排序 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, json);
         StringBuilder sb = new StringBuilder(json + "&");
         //拼接 ts和 //替换所有的双引号
         sb.append("ts=").append(ts).append("&signKey=").append(key);
-        log.info("3.sign 拼接 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, sb);
+//        log.info("3.sign 拼接 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, sb);
         //替换所有的双引号
         String md5_str = sb.toString().replaceAll("\\\"", "");
-        log.info("4.sign 替换 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, md5_str);
+//        log.info("4.sign 替换 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, md5_str);
         String server_sign = MD5NOSALT(md5_str).toUpperCase();
-        log.info("5.sign 加签 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, server_sign);
+//        log.info("5.sign 加签 -> 秘钥: {} | 时间戳: {}  -> {}", key, ts, server_sign);
         return server_sign;
     }
 
@@ -113,7 +112,7 @@ public class SignUtil {
         if (null == s || "" == s) {
             return "";
         }
-        char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         try {
             byte[] btInput = (s).getBytes();
             // 获得MD5摘要算法的 MessageDigest 对象
@@ -124,7 +123,7 @@ public class SignUtil {
             byte[] md = mdInst.digest();
             // 把密文转换成十六进制的字符串形式
             int j = md.length;
-            char str[] = new char[j * 2];
+            char[] str = new char[j * 2];
             int k = 0;
             for (int i = 0; i < j; i++) {
                 byte byte0 = md[i];
